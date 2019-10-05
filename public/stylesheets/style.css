@@ -1,11 +1,12 @@
 html {
     overflow: hidden;
 }
+
 body {
     margin: 0;
     font-size: 26px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #ffffff;
+    color: black;
     height: 100vh;
     perspective: 1px;
     transform-style: preserve-3d;
@@ -39,17 +40,51 @@ a {
 
 .regular-wrapper{
   width: 100vw;
-  height: 80vh;
-  padding-top:20vh;
+  height: 100vh;
+  padding-top: 40px;
   background-color: white;
-  //background-image: url("/images/bg.jpg");
+  /* background-image: url("/images/bg.jpg"); */
   z-index: 2;
   position: relative;
 }
 
 .content{
+  /* font-size: 2vh; */
+  /* font-size: 1vw; */
   margin: 0 auto;
-  padding: 50px;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 50vh;
   width: 50%;
   background: #aaa;
+}
+
+.row{
+  margin-bottom: 35px;
+}
+
+.mainTitle{
+  text-align: center;
+  font-size: 300%;
+}
+
+.blockHeader{
+  text-align: center;
+  /* background-color: lightcoral; */
+  margin-bottom: 30px;
+}
+
+h3 {
+  margin-top: 0px;
+  color: rgb(62, 98, 255);
+}
+
+.subHeader{
+  color: green;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 13px;
 }
