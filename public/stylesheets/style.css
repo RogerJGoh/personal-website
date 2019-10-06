@@ -1,6 +1,6 @@
-html {
+/* html {
     overflow: hidden;
-}
+} */
 
 body {
     margin: 0;
@@ -8,7 +8,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
     height: 100vh;
-    perspective: 1px;
+    /* perspective: 1px; */
     transform-style: preserve-3d;
     overflow-x:hidden;
     overflow-y:auto;
@@ -34,8 +34,8 @@ a {
   left: 0;
   background-image: url("/images/bg.jpg");
   position: absolute;
-  z-index: -1;
-  transform:translateZ(-1px) scale(2);
+  /* z-index: -1;
+  transform:translateZ(-1px) scale(2); */
 }
 
 .regular-wrapper{
@@ -44,22 +44,32 @@ a {
   /* padding-top: 40px; */
   background-color: white;
   /* background-image: url("/images/bg.jpg"); */
-  z-index: 2;
-  position: relative;
+  /* z-index: 2;
+  position: relative; */
 }
 
-/* .content{
-  margin: 0 auto;
-  padding: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  height: 50vh;
-  width: 50%;
-  background: #aaa;
-} */
+.regular-wrapper{
+  width: 100vw;
+  height: 100vh;
+  /* padding-top: 40px; */
+  background-color: white;
+  /* background-image: url("/images/bg.jpg"); */
+  /* z-index: 2;
+  position: relative; */
+}
 
 .block-left{
   height:100vh;
+  background-color: rgb(206, 44, 98); 
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.block-left-inner{
+  height:100%;
+  width:50vw;
+  background-color: rgb(206, 44, 98); 
   display: flex;
   justify-content: center;
   align-items: center;
