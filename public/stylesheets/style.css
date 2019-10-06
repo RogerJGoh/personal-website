@@ -41,16 +41,14 @@ a {
 .regular-wrapper{
   width: 100vw;
   height: 100vh;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   background-color: white;
   /* background-image: url("/images/bg.jpg"); */
   z-index: 2;
   position: relative;
 }
 
-.content{
-  /* font-size: 2vh; */
-  /* font-size: 1vw; */
+/* .content{
   margin: 0 auto;
   padding: 20px;
   padding-left: 50px;
@@ -58,21 +56,22 @@ a {
   height: 50vh;
   width: 50%;
   background: #aaa;
+} */
+
+.block-left{
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.row{
-  margin-bottom: 35px;
+.block-right{
+  padding-right: 40px;
 }
 
 .mainTitle{
   text-align: center;
   font-size: 300%;
-}
-
-.blockHeader{
-  text-align: center;
-  /* background-color: lightcoral; */
-  margin-bottom: 30px;
 }
 
 h3 {
