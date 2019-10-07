@@ -23,7 +23,7 @@ a {
   height: 100vh;
   padding-top: 20vh;
   box-sizing: border-box;
-  transform-style: preserve-3d;
+  /* transform-style: preserve-3d; */
 }
 
 .parallax-wrapper::before{
@@ -64,16 +64,21 @@ a {
   /* display: flex;
   justify-content: center;
   align-items: center; */
+  
 }
 
 .block-left-inner{
   height:100%;
   width:50vw;
-  background-color: rgb(206, 44, 98); 
-  display: flex;
+  background-color: rgb(206, 44, 98);
+
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+ 
+  margin-top: 50%;
 }
+
 
 .block-right{
   padding-right: 40px;

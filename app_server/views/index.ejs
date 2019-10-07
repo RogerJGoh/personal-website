@@ -78,10 +78,15 @@
 
 <script>
     $(function () { // wait for document ready
-      // build scene
+      
+      if(window.innerHeight>window.innerWidth){
+        return;
+      }
+
       var staticLength = $("#staticLength1").height()
       var scrollLength = $("#scrollLength1").height()
       var scrollDuration = scrollLength-staticLength
+      // build scene
       var scene = new ScrollMagic.Scene({offset: staticLength, triggerHook: "onEnter", triggerElement: "#trigger1", duration: scrollDuration})
               .setPin("#pin1")
               .on('start', function () {
