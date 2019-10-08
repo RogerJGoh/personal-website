@@ -10,25 +10,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script>
+    <!-- <script>
         // init controller
         var controller = new ScrollMagic.Controller();
-    </script>
+    </script> -->
 
   </head>
   <body>
-    <div class="parallax-wrapper">
+    <div class="regular-wrapper">
       <div class="mainTitle">
         <span>Roger Goh</span>
       </div>
     </div>
     <div class="regular-wrapper">
-      <div id="trigger1"></div>
-      <div id="scrollLength1" class="row" style="background-color:hotpink">
-        <div id="staticLength1" class="col-sm-6 block-left">
-            <div id="pin1" class="col-sm-12 block-left-inner">Header</div>
+      
+      <div class="row" style="background-color:hotpink">
+        <div id="trigger0"></div>
+        <div id="staticLength0" class="col-sm-6 block-left">
+            <div id="pin0" class="block-left-inner">Header</div>
         </div>
-        <div class="col-sm-6 block-right" style="background-color:white">
+        <div id="scrollLength0" class="col-sm-6 block-right" style="background-color:white">
           <div class="row">
             <div class="col-sm-4" style="background-color:lavenderblush;">
                 Image Placeholder
@@ -53,24 +54,25 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-6 block-left" style="background-color:lavenderblush;">
-            Block Title
-        </div>
-        <div class="col-sm-6 block-right">
-          <div class="row">
-            <div class="col-sm-4" style="background-color:lavenderblush;">
-                Image Placeholder
-            </div>
-            <div class="col-sm-8">
-              <h3>University of Western Australia</h3>
-              <h5 class="subHeader">Bachelor of Science, Double Major: Computer Science, Data Science</h5>
-              <h5>May 2019 - May 2019 Perth, WA</h5>
-              <p>Tenetur quaerat alias, et blanditiis ea dicta voluptate vitae sed nulla modi earum labore ab nesciunt illo eum rerum, omnis at nisi rem, ex sapiente cum! Perferendis eius fuga aperiam?</p>
+      <div class="row" style="background-color:hotpink">
+          <div id="trigger1"></div>
+          <div id="staticLength1" class="col-sm-6 block-left">
+              <div id="pin1" class="block-left-inner">Header</div>
+          </div>
+          <div id="scrollLength1" class="col-sm-6 block-right" style="background-color:white">
+            <div class="row">
+              <div class="col-sm-4" style="background-color:lavenderblush;">
+                  Image Placeholder
+              </div>
+              <div class="col-sm-8">
+                <h3>University of Western Australia</h3>
+                <h5 class="subHeader">Bachelor of Science, Double Major: Computer Science, Data Science</h5>
+                <h5>May 2019 - May 2019 Perth, WA</h5>
+               <p>Tenetur quaerat alias, et blanditiis ea dicta voluptate vitae sed nulla modi earum labore ab nesciunt illo eum rerum, omnis at nisi rem, ex sapiente cum! Perferendis eius fuga aperiam?</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
     </div>
   </body>
@@ -78,24 +80,45 @@
 
 <script>
     $(function () { // wait for document ready
+      for(i=0;i<2;i++){ //loop through each scene/block
+        var controller = new ScrollMagic.Controller();
+        var staticLength = $(`#staticLength${i}`).height()  //bottom line of the header block/left column
+        var scrollLength = $(`#scrollLength${i}`).height()  //bottom line of the information block/right column
+        var scrollDuration = scrollLength-staticLength      //distance between the two, scroll space
+        
+        //if screen is small, the header/column fills the width of the page therefore does not require scrolling
+        //if scrollDuration is negative, that means the header is longer than the information passage thus also does not require scrolling
+        if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
+          controller.enabled(false);
+        } else {
+          controller.enabled(true);
+        }
+        
+        //build scene
+        var scene = new ScrollMagic.Scene({offset: staticLength, triggerHook: "onEnter", triggerElement: `#trigger${i}`, duration: scrollDuration})
+                .setPin(`#pin${i}`)
+                .on('start', function () {
+                  console.log(`Height: ${window.innerHeight}, Width: ${window.innerWidth}`)
+                })
+                .on('end', function () {
+                  console.log("passed trigger");
+                })
+                // .addIndicators({name: ` (duration: ${scrollDuration})`}) // add indicators (requires plugin)
+                .addIndicators({name: "scroll"})
+                .addTo(controller);
       
-      if(window.innerHeight>window.innerWidth){
-        return;
-      }
+        //prevents multiple premature triggers during manual resizing
+        $(window).resize(function() {
+          if(this.resizeTO) clearTimeout(this.resizeTO);
+          this.resizeTO = setTimeout(function() {
+              $(this).trigger('resizeEnd');
+          }, 500);
+        });
 
-      var staticLength = $("#staticLength1").height()
-      var scrollLength = $("#scrollLength1").height()
-      var scrollDuration = scrollLength-staticLength
-      // build scene
-      var scene = new ScrollMagic.Scene({offset: staticLength, triggerHook: "onEnter", triggerElement: "#trigger1", duration: scrollDuration})
-              .setPin("#pin1")
-              .on('start', function () {
-                console.log("passed trigger");
-              })
-              .on('end', function () {
-                console.log("passed trigger");
-              })
-              .addIndicators({name: "1 (duration: "+scrollDuration}) // add indicators (requires plugin)
-              .addTo(controller);
+        //refresh page on resize to reinit pins
+        $(window).on("resizeEnd", function() {
+          location.reload();
+        });
+      }
     });
 </script>
