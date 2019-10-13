@@ -13,14 +13,21 @@ a {
   color: #00B7FF;
 }
 
-.regular-wrapper{
-  padding:0;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
+ul {
+  list-style: none; /* Remove default bullets */
 }
 
-.regular-wrapper{
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: rgb(255, 187, 0); /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  font-size: 130%;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -3em; /* Also needed for space (tweak if needed) */
+}
+
+.wrapper{
   width: 100vw;
   height: 100vh;
   background-color: white;
@@ -43,26 +50,46 @@ a {
   font-family: sans-serif;
   color: rgb(80, 85, 92);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 15px;
   font-style: normal; 
   min-height: 100vh;
+}
+
+.spaced{
+  margin-bottom: 30px;
 }
 
 .mainTitle{
   font-size: 300%;
   text-align: center;
-  margin: 40vh 0;
+  margin: 20vh 0;
   
 }
 
+.aboutMeHeader{
+  font-size: 160%;
+  font-weight: bold;
+  color: rgb(255, 187, 0);
+  margin-bottom: 30px;
+}
 
+.header{
+  font-size: 110%;
+  font-weight: bold;
+  color:black;
+  margin-bottom: 5px;
+}
 
 .subHeader{
   color: rgb(255, 187, 0);
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
-/* p {
-  font-family: sans-serif;
-  font-size: 13px;
-} */
+.fadedText{
+  color: rgb(138, 138, 138);
+}
+
+.fadedText span{
+  font-size: 85%;
+}

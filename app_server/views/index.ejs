@@ -10,63 +10,79 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
-
   </head>
   <body>
     <div id="svgTrigger" style="top:0"></div>
-    <div class="regular-wrapper container">
+    <div id="introWrapper" class="wrapper container">
       <div class="mainTitle">
         <div>Roger Goh</div>
         <div>
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200">
-          <path id="word" style="stroke-linecap: round; stroke-linejoin: round;"
-            fill="none" stroke="#000000" stroke-width="5" 
-            d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886
-              c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964
-              c13.06,5.953,14.854-8.305,19.734-17.017c7.188-12.836,4.933-15.417,29.6-14.8c-8.954-3.842-37.42,1.728-28.539,20.1
-              c5.823,12.045,34.911,12.583,30.018-8.873c-5.385,17.174,24.01,23.104,24.01,9.123c0-9.867,3.816-15.937,16.034-18.5
-              c8.359-1.754,18.982,4.754,25.9,9.25c-10.361-4.461-51.941-13.776-37.749,12.357c9.435,17.372,50.559,2.289,33.477-6.063
-              c-2.871,19.008,32.415,31.684,30.695,54.439c-2.602,34.423-66.934,24.873-79.302,2.134c-13.11-24.101,38.981-36.781,54.798-40.941
-              c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117
-              c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951"/>
-          <path id="dot" style="stroke-linecap: round; stroke-linejoin: round;"
-            fill="none" stroke="#000000" stroke-width="5" 
-            d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"/>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="500" height="500">
+
+            <path id="signature0" d="m69.5,169.945313c16,-21 28.112083,-34.889969 34,-41c13.256897,-13.756981 19.242455,-20.742554 32,-33c10.197876,-9.798119 15,-14 25,-19c6,-3 8.811447,-3.865356 11,-1c1.919479,2.513084 0.484451,5.156937 -2,12c-3.361069,9.257607 -11.162109,20.886993 -16,28c-11.387589,16.742844 -24.712799,34.488373 -31,44c-11.354523,17.177734 -15,26 -22,40l-4,9l-1,5" id="svg_2" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature1" d="m119.5,124.945313c-8,20 -8.848885,24.046585 -12,34c-3.817787,12.059204 -5.644012,19.075607 -9,34c-1.80912,8.045319 -4.38533,24.192993 -10,41c-2.707207,8.10376 -9,25 -13,37l-1,4l0,6l0,0" id="svg_3" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature2" d="m160.5,164.945313c-15,12 -17.831787,14.522156 -21,21c-1.389359,2.840729 -4,9 -4,15c0,2 0.385101,6.372009 3,10c0.826904,1.147263 4.925797,4.497559 10,5c3.98053,0.39415 11.316879,-5.319717 16,-16c7.115921,-16.228485 5.122345,-23.06601 4,-25c-1.809723,-3.118484 -6.066589,-5.957443 -11,-2c-4.548386,3.64859 -5,7 -6,13l-1,5" id="svg_4" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature3" d="m211.5,163.945313c-17,12 -22.49295,21.234009 -25,26c-5.035675,9.572983 -8.752563,18.010223 -9,21c-0.501709,6.062042 0.693436,9.458801 2,10c3.695511,1.530731 9.159271,-1.610641 12,-3c6.477844,-3.168213 9,-7 13,-13c4,-6 5.497559,-8.925797 6,-14c0.39415,-3.98053 1.565369,-6.150986 -1,-8c-1.622482,-1.169418 -3.144287,-0.065857 -4,2c-1.210144,2.92157 -1,4 0,7l1,2l2,0" id="svg_5" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature4" d="m251.5,161.945313c-12,15 -12.550369,16.641174 -15,21c-2.638321,4.694595 -2.79393,8.087433 -5,13c-1.832031,4.079666 -2,6 -2,11c0,3 -0.210144,5.07843 1,8c0.855713,2.065857 0.769562,2.841492 3,3c3.154327,0.224167 5.232956,-1.589722 9,-4c5.393585,-3.450989 6.729614,-6.228851 11,-11c2.829498,-3.161316 4,-4 7,-5l1,0l1,1l0,1" id="svg_6" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature5" d="m236.5,193.945313c14,-8 16.74675,-10.371338 21,-13c1.9021,-1.175568 5,-4 8,-5l1,-1l1,-1" id="svg_7" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature6" d="m243.5,165.945313c15,-6 18,-8 23,-11l3,-3l2,0l2,-1" id="svg_8" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature7" d="m297.5,158.945313c-5,14 -5.432678,17.054138 -6,20c-1.018372,5.287994 -1.579712,8.156876 -4,14c-2.567108,6.197571 -3.881897,8.072784 -7,13c-1.92807,3.046722 -3,4 -4,5c0,0 0,-1 1,-4c1,-3 3.695923,-9.159393 8,-17c2.805908,-5.11145 9.060577,-14.950714 18,-26c4.027405,-4.977951 13.74292,-15.294128 24,-24c4.881775,-4.143478 13.423767,-11.21904 23,-15c3.835022,-1.514168 11,-3 17,-3c2,0 7.418854,2.256584 9,7c0.948669,2.846054 0.034119,10.433182 -5,21c-2.507843,5.264099 -10.63385,17.295593 -22,31c-6.786133,8.18219 -22.4216,25.625473 -44,45c-12.671295,11.377106 -40,35 -66,62l-22,24" id="svg_9" stroke-width="7.5" stroke="#000" fill="none"/>
+            <path id="signature8" d="m106.5,185.945313c3,21 10.596962,36.266495 16,44c13.060043,18.693192 32.011826,37.986877 42,47c21.024918,18.972412 32.105103,29.187744 53,44c15.392654,10.911743 23.693436,15.458801 25,16c0.923874,0.38269 -0.097885,-0.824432 -2,-2c-0.850647,-0.525726 -2,-1 -2,-2l-1,0l1,0" id="svg_26" fill-opacity="null" stroke-opacity="null" stroke-width="7.5" stroke="#000" fill="none"/>
+ 
           </svg>
         </div>
       </div>
     </div>
-    <div class="regular-wrapper container">
+    <div class="wrapper container">
       <div class="row" style="background-color: rgb(255, 187, 0);">
         <div id="trigger0"></div>
         <div id="staticLength0" class="col-sm-6 block-left">
             <div id="pin0" class="block-left-inner">What I've Done</div>
         </div>
         <div id="scrollLength0" class="col-sm-6 block-right">
-          <div class="row">
-            <div class="col-sm-12">
-              <h3><b>University of Western Australia</b></h3>
-              <h5 class="subHeader">Bachelor of Science, Double Major: Computer Science, Data Science</h5>
-              <h5>May 2019 - May 2019 Perth, WA</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, dignissimos? Accusamus corporis, quaerat voluptate mollitia cum tenetur modi dolore ea libero ipsa nesciunt reprehenderit pariatur deleniti illum facere ratione sapiente!</p>
-              <p>Omnis iure, debitis, ea fuga quis dolores exercitationem facere est esse cupiditate id ipsa at repellat, distinctio provident eius nesciunt consequuntur accusantium officiis? Recusandae autem officia itaque ab, eaque commodi?</p>
-              <p>Itaque, obcaecati error qui laboriosam nam, molestias ducimus nostrum fugiat nemo blanditiis, cum quibusdam? Omnis ipsa voluptatibus temporibus vitae? Officiis, quas. Quidem voluptatum, nisi ullam adipisci consequatur ab alias praesentium!</p>
-              <p>Consequatur accusantium aspernatur labore? Ex nisi facilis, adipisci omnis, sed totam tempora expedita iusto, temporibus vero iure consequatur ut asperiores! Ex perferendis ea vel aperiam, optio nisi consectetur magni culpa.</p>
-              <p>Quasi et sequi nobis voluptatibus architecto perspiciatis, obcaecati non sapiente adipisci explicabo, dolore odio voluptate alias. Animi nisi voluptates maxime blanditiis? Commodi, perspiciatis quisquam! Odit in distinctio illum magnam aliquid!</p>
-              <p>Dolor saepe distinctio libero possimus ab expedita iusto ut debitis repellat, a architecto quia ipsa, unde rem corporis ad sunt eum error? Omnis nesciunt mollitia quae placeat molestias error quasi.</p>
-              <p>Tempora quod id nihil unde doloribus quaerat atque facere ab, itaque nostrum reiciendis, sint aperiam. Facilis possimus, perspiciatis fugit, ducimus iure eos nemo nulla recusandae quibusdam esse officia explicabo ipsum.</p>
-              <p>Dolorum facilis alias perspiciatis velit nisi. Hic est dignissimos ullam praesentium quis? Possimus illo dolorum rerum, libero assumenda architecto quia! Delectus nisi dolor officia et veritatis! Consectetur voluptatibus impedit dolor.</p>
-              <p>Atque laboriosam blanditiis impedit incidunt quas, nesciunt quibusdam magnam iusto esse quam cupiditate asperiores! Quidem, ab! Eum est velit harum nesciunt magni, nobis molestiae voluptatibus et ipsum beatae quia ex.</p>
-              <p>Esse saepe iste incidunt voluptatem voluptatibus enim iure in excepturi perferendis facere aperiam quo eligendi officiis quod sit, culpa ex eveniet. Repellendus ipsa nobis excepturi error dolorum nulla doloribus doloremque!</p>
-              <p>Dolorum facilis alias perspiciatis velit nisi. Hic est dignissimos ullam praesentium quis? Possimus illo dolorum rerum, libero assumenda architecto quia! Delectus nisi dolor officia et veritatis! Consectetur voluptatibus impedit dolor.</p>
-              <p>Atque laboriosam blanditiis impedit incidunt quas, nesciunt quibusdam magnam iusto esse quam cupiditate asperiores! Quidem, ab! Eum est velit harum nesciunt magni, nobis molestiae voluptatibus et ipsum beatae quia ex.</p>
-              <p>Esse saepe iste incidunt voluptatem voluptatibus enim iure in excepturi perferendis facere aperiam quo eligendi officiis quod sit, culpa ex eveniet. Repellendus ipsa nobis excepturi error dolorum nulla doloribus doloremque!</p>
-              <p>Tenetur quaerat alias, et blanditiis ea dicta voluptate vitae sed nulla modi earum labore ab nesciunt illo eum rerum, omnis at nisi rem, ex sapiente cum! Perferendis eius fuga aperiam?</p>
+
+          <div class="row aboutMeHeader">Education</div>
+
+          <div class="spaced row">
+            <div class="header">University of Western Australia</div>
+            <div class="fadedText">
+              <i>Jan 2016 - Jun 2019</i>
+              <span>&nbsp; Perth, WA</span>
             </div>
+            <p><ul>
+                <li>BSc Double Major in Computer Science and Data Science; GPA 4.8/7.0</li>
+                <li>ISAT Score of 170 - top 30% of test-taking population (highly competitive medical sciences cognitive/admission test developed by ACER)</li>
+            </ul></p>
           </div>
+
+          <div class="spaced row">
+            <div class="header">Taylors College</div>
+            <div class="fadedText">
+              <i>Jan 2015 - Dec 2015</i>
+              <span>&nbsp Perth, WA</span>
+            </div>
+            <p><ul>
+                <li>Foundation Course; Course Average: 80%, English Average: A</li>
+                <li>ASEAN $5000 Scholarship</li>
+            </ul></p>
+          </div>
+
+          <div class="row aboutMeHeader">Skills</div>
+
+          <div class="spaced row">
+              <div class="header">Taylors College</div>
+              <div class="fadedText">
+                <i>Jan 2015 - Dec 2015</i>
+                <span>&nbsp Perth, WA</span>
+              </div>
+              <p><ul>
+                  <li>Foundation Course; Course Average: 80%, English Average: A</li>
+                  <li>ASEAN $5000 Scholarship</li>
+              </ul></p>
+            </div>
+
         </div>
       </div>
 
@@ -105,7 +121,7 @@
   </body>
 </html>
 
-<!-- Section Header Scrolling -->
+<!-- Section Headers Scrolling -->
 <script>
     $(function () { // wait for document ready
       for(i=0;i<2;i++){ //loop through each scene/block
@@ -116,13 +132,13 @@
         
         //if screen is small, the header/column fills the width of the page therefore does not require scrolling
         //if scrollDuration is negative, that means the header is longer than the information passage thus also does not require scrolling
-        if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
+        if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<=0) {
           controller.enabled(false);
         } else {
           controller.enabled(true);
         }
         
-        //build scene
+        //build content sections scenes
         var scene = new ScrollMagic.Scene({offset: staticLength, triggerHook: "onEnter", triggerElement: `#trigger${i}`, duration: scrollDuration})
                 .setPin(`#pin${i}`)
                 .on('start', function () {
@@ -158,26 +174,23 @@
       $el.css("stroke-dasharray", lineLength);
       $el.css("stroke-dashoffset", lineLength);
     }
-
-    var $word = $("path#word");
-    var $dot = $("path#dot");
-
-    // prepare SVG
-    pathPrepare($word);
-    pathPrepare($dot);
-
+    
     // init controller
     var controller = new ScrollMagic.Controller();
 
-    // build tween
-    var tween = new TimelineMax()
-      .add(TweenMax.to($word, 0.9, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw word for 0.9
-      .add(TweenMax.to($dot, 0.1, {strokeDashoffset: 0, ease:Linear.easeNone}))  // draw dot for 0.1
-      .add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);			// change color during the whole thing
+    //build tween
+    var tween = new TimelineMax() 
+    for(var i=0; i<9; i++){
+      var $signatureN = $(`path#signature${i}`);
+      pathPrepare($signatureN); //prepare SVG
+      tween.add(TweenMax.to($signatureN, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke for 0.9
+    }
+    tween.add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);			// change color during the whole thing
 
     // build scene
-    var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 200, tweenChanges: true})
+    var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 100, tweenChanges: true})
             .setTween(tween)
-            .addIndicators("animation") // add indicators (requires plugin)
+            .addIndicators({name: "animation"}) // add indicators (requires plugin)
+            .setPin("#introWrapper")
             .addTo(controller);
   </script>
