@@ -39,13 +39,22 @@
       <div class="row" style="background-color: rgb(255, 187, 0);">
         <div id="trigger0"></div>
         <div id="staticLength0" class="col-sm-6 block-left">
-            <div id="pin0" class="block-left-inner">What I've Done</div>
+            <div id="pin0" class="block-left-inner">
+              About Me
+              <div class="navbar">
+                <ul>
+                  <li><a href="#trigger0">About Me</a></li>
+                  <li>/</li>
+                  <li><a href="#trigger1">Contact</a></li>
+                </ul>
+              </div>
+            </div>
         </div>
         <div id="scrollLength0" class="col-sm-6 block-right">
 
           <div class="row aboutMeHeader">Education</div>
 
-          <div class="spaced row">
+          <div class= "sm-spaced row">
             <div class="header">University of Western Australia</div>
             <div class="fadedText">
               <i>Jan 2016 - Jun 2019</i>
@@ -84,16 +93,51 @@
           <div class="row aboutMeHeader">Experience</div>
 
           <div class="spaced row">
-              <div class="header">Qualtrics to BigQuery Data Transfering Webserver</div>
-              <div class="fadedText">
-                <i>August 2019 - Jun 2019</i>
-                <span>&nbsp; Perth, WA</span>
-              </div>
-              <p><ul>
-                  <li>Paid work to implement a server used to retrieve, transform and store data from Qualtrics (survey platform) to BigQuery (Google storage) automatically upon survey submission.</li>
-                  <li>Additionally implemented dynamically field-updating schema, error mailing system, service options via query strings, Google App Engine server deployment, documentation.</li>
-              </ul></p>
+            <div class="header">Backend Developer (NodeJS)</div>
+            <div class="fadedText">
+              <i>Learning for Purpose, Perth, WA</i>
+              <p><span>Aug 2019 - Oct 2019</span></p>
             </div>
+            <p><ul>
+                <li>Independent contract work to implement a web server used to retrieve, transform and store data from Qualtrics (survey platform) to Google Cloud BigQuery (storage) and Google Pub/Sub (message-oriented middleware).</li>
+                <li>Additionally implemented dynamically field-updating schema, error mailing system, service options via query strings, Google App Engine server deployment and documentation.</li>
+            </ul></p>
+          </div>
+
+          <div class="row aboutMeHeader">Activities</div>
+
+          <div class="sm-spaced row">
+            <div class="header">UniMentor 2019</div>
+            <div class="fadedText">
+              <i>University of Western Australia, Perth, WA</i>
+              <p><span>Jan 2019 - Apr 2019</span></p>
+            </div>
+            <p><ul>
+                <li>Mentored six new freshman students with one-on-one weekly meetings by providing advice on curriculum, services for students and other general information about the university or student life.</li>
+            </ul></p>
+          </div>
+
+          <div class="sm-spaced row">
+            <div class="header">iOS App Development (Swift)</div>
+            <div class="fadedText">
+              <i>Personal Project, Perth, WA</i>
+              <p><span>Jan 2019 - Current</span></p>
+            </div>
+            <p><ul>
+              <li>Developing a mobile app for iOS utilizing Swift’s extensive UI data structures/event callbacks, UIImageView animations and third-party libraries (cocoa pods).</li>
+            </ul></p>
+          </div>
+
+          <div class="sm-spaced row">
+            <div class="header">Guild Micro-Volunteering</div>
+            <div class="fadedText">
+              <i>University of Western Australia, Perth, WA</i>
+              <p><span>Jul 2017 - Oct 2017</span></p>
+            </div>
+            <p><ul>
+              <li>Participated in crafting activities for university events/clubs.</li>
+            </ul></p>
+          </div>
 
         </div>
       </div>
@@ -101,7 +145,16 @@
       <div class="row" style="background-color: rgb(63, 63, 63)">
           <div id="trigger1"></div>
           <div id="staticLength1" class="col-sm-6 block-left">
-              <div id="pin1" class="block-left-inner">Header</div>
+              <div id="pin1" class="block-left-inner">
+                Contact
+                <div class="navbar">
+                    <ul>
+                      <li><a href="#trigger0">About Me</a></li>
+                      <li>/</li>
+                      <li><a href="#trigger1">Contact</a></li>
+                    </ul>
+                  </div>
+              </div>
           </div>
           <div id="scrollLength1" class="col-sm-6 block-right" style="background-color:white">
             <div class="row">
@@ -200,7 +253,7 @@
     tween.add(TweenMax.to("path", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);			// change color during the whole thing
 
     // build scene
-    var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 100, tweenChanges: true})
+    var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 700, tweenChanges: true})
             .setTween(tween)
             .addIndicators({name: "animation"}) // add indicators (requires plugin)
             .setPin("#introWrapper")
