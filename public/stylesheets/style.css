@@ -25,7 +25,7 @@ a {
 
 .block-right ul li::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: rgb(255, 187, 0); /* Change the color */
+  color: rgb(170, 207, 176);
   font-weight: bold; /* If you want it to be bold */
   font-size: 130%;
   display: inline-block; /* Needed to add space between the bullet and the text */
@@ -74,14 +74,13 @@ a {
 .mainTitle{
   font-size: 300%;
   text-align: center;
-  margin: 20vh 0;
-  
+  margin: 38vh 0;
 }
 
 .aboutMeHeader{
   font-size: 160%;
   font-weight: bold;
-  color: rgb(255, 187, 0);
+  color: rgb(170, 207, 176);
   margin-bottom: 20px;
 }
 
@@ -93,7 +92,7 @@ a {
 }
 
 .subHeader{
-  color: rgb(255, 187, 0);
+  color: rgb(170, 207, 176);
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -123,4 +122,9 @@ a {
 
 .navbar li {
   display: inline;
+}
+
+.background{
+  background-image: url("/images/rogersdesk.png");
+  background-size: cover;
 }
