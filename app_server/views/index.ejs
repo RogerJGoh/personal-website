@@ -18,7 +18,7 @@
     <div id="introWrapper" class="wrapper container background">
       <div class="mainTitle">
         <div>Roger Goh</div>
-        <div style="font-size: 40%; color: rgb(122, 122, 122)">Software Developer + Artist</div>
+        <div style="font-size: 40%; color: rgb(122, 122, 122); font-family: brandon-grotesque-regular-italic;">Software Developer + Designer</div>
         <div>
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="500" height="500" class="signature">
 
@@ -44,9 +44,9 @@
               About Me
               <div class="navbar">
                 <ul>
-                  <li><a href="#trigger0">About Me</a></li>
+                  <li><a href="#trigger0" id="bouncy">About Me</a></li>
                   <li>/</li>
-                  <li><a href="#trigger1">Contact</a></li>
+                  <li><a href="#trigger1" id="bouncy" style="animation-delay:0.07s">Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -150,9 +150,9 @@
                 Contact
                 <div class="navbar">
                     <ul>
-                      <li><a href="#trigger0">About Me</a></li>
+                      <li><a href="#trigger0" id="bouncy" >About Me</a></li>
                       <li>/</li>
-                      <li><a href="#trigger1">Contact</a></li>
+                      <li><a href="#trigger1" id="bouncy" style="animation-delay:0.07s">Contact</a></li>
                     </ul>
                   </div>
               </div>
@@ -207,11 +207,12 @@
         //build content sections scenes
         var scene = new ScrollMagic.Scene({offset: staticLength, triggerHook: "onEnter", triggerElement: `#trigger${i}`, duration: scrollDuration})
                 .setPin(`#pin${i}`)
+                .setClassToggle("#bouncy","bounce") //bounces anything with bouncy id
                 .on('start', function () {
-                  console.log(`Height: ${window.innerHeight}, Width: ${window.innerWidth}`)
+                  // console.log(`Height: ${window.innerHeight}, Width: ${window.innerWidth}`)
                 })
                 .on('end', function () {
-                  console.log("passed trigger");
+                  // console.log("passed trigger");
                 })
                 // .addIndicators({name: ` (duration: ${scrollDuration})`}) // add indicators (requires plugin)
                 .addIndicators({name: "scroll"})
