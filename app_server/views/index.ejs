@@ -279,7 +279,7 @@
     }
 
     // change color during the whole thing
-    tween.add(TweenMax.to("path#signature", 1, {stroke: "#33629c", ease:Linear.easeNone}), 0);			
+    tween.add(TweenMax.to("polyline", 2, {stroke: "rgb(170, 207, 176)", ease:Linear.easeNone}), 0);			
 
     // build scene
     var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 700, tweenChanges: true})
