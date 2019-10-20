@@ -75,7 +75,8 @@ body {
   font-family: 'gentium-book-basic' !important;
   font-size: 300%;
   text-align: center;
-  margin: 38vh 0;
+  /* margin: 38vh 0; */
+  margin: 34vh 0;
   font-weight: 100;
 }
 

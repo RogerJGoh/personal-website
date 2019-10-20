@@ -103,7 +103,7 @@
             </ul>
           </div>
 
-          <div id="experience" class="row aboutMeHeader">Experience</div>
+          <div id="experience" class="row aboutMeHeader">Work Experience</div>
 
           <div class="spaced row">
             <div class="header">Backend Developer (NodeJS)</div>
@@ -127,6 +127,19 @@
             </div>
             <p><ul>
                 <li>Mentored six new freshman students with one-on-one weekly meetings by providing advice on curriculum, services for students and other general information about the university or student life.</li>
+            </ul></p>
+          </div>
+
+          <div class="sm-spaced row">
+            <div class="header">Personal Website (NodeJS)</div>
+            <div class="fadedText">
+              <i>Personal Project, Perth, WA</i>
+              <p><span>Oct 2019 - Current</span></p>
+            </div>
+            <p><ul>
+              <li>Independently developed a personal website to demonstrate web development skills and to present a personalised profile.</li>
+              <li>Combined own vector illustration (.svg), JavaScript/HTML/CSS and ScrollMagic library for scroll based animations (signature drawing, pinned headers/sections, navbar bouncing).</li>
+              <li>Used Bootstrap containers/rows/columns and jQuery for cross-platform compatible formatting/styling</li>
             </ul></p>
           </div>
 
@@ -208,6 +221,8 @@
         //if scrollDuration is negative, that means the header is longer than the information passage thus also does not require scrolling
         // if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
         if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
+          var introNavBar = document.getElementsByClassName("intronavbar");
+          introNavBar[0].style.display="none";  //allows drawing space for signature on mobile
           controller.enabled(false);
         } else {
           controller.enabled(true);
