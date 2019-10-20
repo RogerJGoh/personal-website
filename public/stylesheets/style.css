@@ -111,9 +111,12 @@ body {
 .navbar {
   position:absolute;
   /* text-align: center; */
-  left:30%;
-  bottom:0;
+  /* left:30%;
+  bottom:0; */
   font-size: 18px;
+
+  margin: 0% 29% auto;
+  bottom: 6%;
 }
 
 .navbar ul {
