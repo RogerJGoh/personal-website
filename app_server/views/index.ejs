@@ -15,13 +15,13 @@
   </head>
   <body>
     <div id="svgTrigger" style="top:0"></div>
-    <div id="introWrapper" class="wrapper container background">
+    <div id="introWrapper" class="wrapper container background" style="overflow:hidden;">
       <div class="mainTitle">
-        <div>Roger Goh</div>
-        <div style="font-size: 40%; color: rgb(122, 122, 122); font-family: brandon-grotesque-regular-italic;">Software Developer + Designer</div>
-        <div>
+        <div style="font-size: 10.2vh;">Roger&nbsp;Goh</div>
+        <div style="font-size: 4vh; color: rgb(122, 122, 122); font-family: brandon-grotesque-regular-italic;">Software Developer + Designer</div>
+        <div id="signature">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:se="http://svg-edit.googlecode.com" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" 
-          class="signature" width="403.6470642089844" height="202.47059631347656" style="margin-top: 2%">
+          class="signature" viewBox="0 0 404 202" height="100" style="margin-top: 2%; height: 25vh; width: 90vw;">
             <g class="currentLayer">
               <polyline fill="none" stroke="#222222" stroke-width="7" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" marker-start="" marker-mid="" marker-end="" id="svg_1" points="25.220566272735596,90.19245910644531 25.220566272735596,89.61569213867188 24.066647052764893,90.19245910644531 21.758808612823486,91.9227294921875 18.29704713821411,94.22975158691406 14.258326053619385,97.11354064941406 10.796568393707275,98.84381103515625 8.488726139068604,99.9973373413086 7.911766529083252,100.57408905029297 7.911766529083252,99.9973373413086 10.219604969024658,96.53678894042969 13.104406833648682,93.65299224853516 17.143127918243408,89.0389404296875 22.91272783279419,83.84811401367188 35.60584878921509,74.62000274658203 47.145052433013916,66.54539489746094 60.992098331451416,57.31726837158203 76.57000970840454,48.089149475097656 92.14793634414673,39.43778610229492 118.11113977432251,27.902637481689453 136.57386255264282,20.981544494628906 153.8826699256897,15.213967323303223 169.46058130264282,11.176665306091309 187.34633874893188,8.292876243591309 196.00074243545532,8.292876243591309 200.6164345741272,9.446392059326172 201.19338464736938,13.483694076538086 195.42377710342407,22.135059356689453 186.19242334365845,30.209665298461914 172.9223427772522,40.59130096435547 156.19050073623657,53.27996826171875 136.57386255264282,67.69890594482422 103.68714380264282,87.88541412353516 86.37833642959595,98.26705932617188 " style="color: rgb(0, 0, 0);" class=""/>
               <polyline fill="none" stroke="#222222" stroke-width="7" stroke-linejoin="round" stroke-dashoffset="" fill-rule="nonzero" marker-start="" marker-mid="" marker-end="" id="svg_2" points="132.5351357460022,22.711816787719727 132.5351357460022,22.135059356689453 132.5351357460022,21.558298110961914 132.5351357460022,22.711816787719727 132.5351357460022,23.865333557128906 130.80427026748657,27.902637481689453 125.03465509414673,40.59130096435547 117.53418970108032,54.4334831237793 106.57194757461548,72.31297302246094 92.72490167617798,91.34596252441406 78.30089807510376,113.26274871826172 57.53032922744751,145.56117248535156 46.56809091567993,163.44065856933594 37.33673334121704,179.58987426757812 29.836248874664307,192.8553009033203 27.528408527374268,197.4693603515625 " style="color: rgb(0, 0, 0);" class=""/>
@@ -35,14 +35,14 @@
           </svg>
         </div>
         <div class="intronavbar navbar"style="bottom: 3%; color:black; margin: 0% 39% auto;">
-          <ul>
+          <ul id = "intronavbar">
             <li><a href="#section0" class="bounce">About Me</a></li>
             <li>/</li>
             <li><a href="#experience" class="bounce" style="animation-delay:0.08s">Experience</a></li>
             <li>/</li>
             <li><a href="#section1" class="bounce" style="animation-delay:0.16s">Contact</a></li>
           </ul>
-          <p style="font-size:90%;color:rgb(143, 143, 143);">&copy; 2019 Roger Goh</p>
+          <p id = "copyright" style="font-size:90%;color:rgb(143, 143, 143);">&copy;&nbsp;2019&nbsp;Roger&nbsp;Goh</p>
         </div>
       </div>
     </div>
@@ -219,13 +219,20 @@
         
         //if screen is small, the header/column fills the width of the page therefore does not require scrolling
         //if scrollDuration is negative, that means the header is longer than the information passage thus also does not require scrolling
-        // if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
         if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
-          var introNavBar = document.getElementsByClassName("intronavbar");
-          introNavBar[0].style.display="none";  //allows drawing space for signature on mobile
           controller.enabled(false);
         } else {
           controller.enabled(true);
+        }
+        
+        //make space for signature animation if overlapping with navbar
+        if(collision($('#signature'), $('#intronavbar'))){
+          var introNavBar = document.getElementById("intronavbar");
+          introNavBar.style.display="none";  //allows drawing space for signature on mobile
+        }
+        if(collision($('#signature'), $('#copyright'))){
+          var copyright = document.getElementById("copyright");
+          copyright.style.display="none";  //allows drawing space for signature on mobile
         }
         
         //build content sections scenes
@@ -264,48 +271,69 @@
 
 <!-- SVG Animation -->
 <script>
-    function pathPrepare ($el) {
-      var lineLength = $el[0].getTotalLength();
-      $el.css("stroke-dasharray", lineLength);
-      $el.css("stroke-dashoffset", lineLength);
-    }
-    
-    // init controller
-    var controller = new ScrollMagic.Controller();
+  function pathPrepare ($el) {
+    var lineLength = $el[0].getTotalLength();
+    $el.css("stroke-dasharray", lineLength);
+    $el.css("stroke-dashoffset", lineLength);
+  }
+  
+  // init controller
+  var controller = new ScrollMagic.Controller();
 
-    //build tween
-    var tween = new TimelineMax() 
-    // for(var i=0; i<9; i++){
-    //   var $signatureN = $(`path#signature${i}`);
-    //   pathPrepare($signatureN); //prepare SVG
-    //   tween.add(TweenMax.to($signatureN, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke for 0.9
-    // }
-    
-    for(var i=1; i<=7; i++){
-      var $stroke = $(`polyline#svg_${i}`);
-      pathPrepare($stroke); //prepare SVG
-      switch(i) {
-        case 5:   //g,e,r
-          tween.add(TweenMax.to($stroke, 0.6, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke
-          break;
-        case 6:   //\
-          tween.add(TweenMax.to($stroke, 0.3, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke
-          break;
-        case 7:   //time between animation and scrolling
-        tween.add(TweenMax.to($stroke, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke
+  //build tween
+  var tween = new TimelineMax() 
+  // for(var i=0; i<9; i++){
+  //   var $signatureN = $(`path#signature${i}`);
+  //   pathPrepare($signatureN); //prepare SVG
+  //   tween.add(TweenMax.to($signatureN, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke for 0.9
+  // }
+  
+  for(var i=1; i<=7; i++){
+    var $stroke = $(`polyline#svg_${i}`);
+    pathPrepare($stroke); //prepare SVG
+    switch(i) {
+      case 5:   //g,e,r
+        tween.add(TweenMax.to($stroke, 0.6, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke
         break;
-        default:  //r,o
-          tween.add(TweenMax.to($stroke, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) 
-      }
+      case 6:   //\
+        tween.add(TweenMax.to($stroke, 0.3, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke
+        break;
+      case 7:   //time between animation and scrolling
+      tween.add(TweenMax.to($stroke, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) // draw stroke
+      break;
+      default:  //r,o
+        tween.add(TweenMax.to($stroke, 0.2, {strokeDashoffset: 0, ease:Linear.easeNone})) 
     }
+  }
 
-    // change color during the whole thing
-    tween.add(TweenMax.to("polyline", 2, {stroke: "rgb(170, 207, 176)", ease:Linear.easeNone}), 0);			
+  // change color during the whole thing
+  tween.add(TweenMax.to("polyline", 2, {stroke: "rgb(170, 207, 176)", ease:Linear.easeNone}), 0);			
 
-    // build scene
-    var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 700, tweenChanges: true})
-            .setTween(tween)
-            // .addIndicators({name: "animation"}) // add indicators (requires plugin)
-            .setPin("#introWrapper")
-            .addTo(controller);
-  </script>
+  // build scene
+  var scene = new ScrollMagic.Scene({triggerHook: "onLeave", triggerElement: "#svgTrigger", duration: 700, tweenChanges: true})
+          .setTween(tween)
+          // .addIndicators({name: "animation"}) // add indicators (requires plugin)
+          .setPin("#introWrapper")
+          .addTo(controller);
+</script>
+
+<!-- Check if signature animation requires more space (if divs are overlapping) -->
+<script>
+  function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
+      
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+  }
+</script>
