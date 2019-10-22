@@ -36,7 +36,7 @@
             </g>
           </svg>
         </div>
-        <div class="intronavbar navbar"style="bottom: 3%; color:black; margin: 0% 39% auto;">
+        <div class="intronavbar navbar"style="bottom:3vh;">
           <ul id = "intronavbar">
             <li><a href="#section0" class="bounce">About Me</a></li>
             <li>/</li>
@@ -49,13 +49,14 @@
       </div>
     </div>
 
-    <!-- Left Block -->
-    <div class="wrapper container">
+    <!-- About Me Section -->
+    <div id="aboutMeSection" class="wrapper container">
       <div class="row" style="background-color: rgb(170, 207, 176);">
         <div id="section0"></div>
         <div id="staticLength0" class="col-sm-6 block-left">
-            <div id="pin0" class="block-left-inner">
-              About Me
+            <div id="pin0" class="block-left-inner" style="top:27%">
+              <div><img class="spaced" style="height:20vh;" src="/images/profilepicture.png" alt="Profile Picture"></div>
+              <div>About Me</div>
               <div class="navbar">
                 <ul>
                   <li><a href="#section0" id="bouncy">About Me</a></li>
@@ -179,7 +180,7 @@
           <div id="section1"></div>
           <div id="staticLength1" class="col-sm-6 block-left">
               <div id="pin1" class="block-left-inner">
-                Contact
+                <div>Contact</div>
                 <div class="navbar">
                     <ul>
                       <li><a href="#section0" id="bouncy">About Me</a></li>
@@ -236,7 +237,8 @@
 <script>
     $(function () { // wait for document ready
       for(i=0;i<2;i++){ //loop through each scene/block
-        var controller = new ScrollMagic.Controller();
+        var scrollController = new ScrollMagic.Controller();
+        var bounceController = new ScrollMagic.Controller();
         var staticLength = $(`#staticLength${i}`).outerHeight()  //bottom line of the header block/left column
         var scrollLength = $(`#scrollLength${i}`).outerHeight()  //bottom line of the information block/right column
         var scrollDuration = scrollLength-staticLength      //distance between the two, scroll space
@@ -244,17 +246,17 @@
         //if screen is small, the header/column fills the width of the page therefore does not require scrolling
         //if scrollDuration is negative, that means the header is longer than the information passage thus also does not require scrolling
         if ($(window).innerWidth() < $(window).innerHeight()  ||  scrollDuration<0) {
-          controller.enabled(false);
+          scrollController.enabled(false);
         } else {
-          controller.enabled(true);
+          scrollController.enabled(true);
         }
         
         //make space for signature animation if overlapping with navbar
-        if(collision($('#signature'), $('#intronavbar'))){
+        if(collision($('#signature'), $('#intronavbar')) || collision($('#aboutMeSection'), $('#intronavbar'))){
           var introNavBar = document.getElementById("intronavbar");
           introNavBar.style.display="none";  //allows drawing space for signature on mobile
         }
-        if(collision($('#signature'), $('#copyright'))){
+        if(collision($('#signature'), $('#copyright')) || collision($('#aboutMeSection'), $('#copyright'))){
           var copyright = document.getElementById("copyright");
           copyright.style.display="none";  //allows drawing space for signature on mobile
         }
@@ -262,16 +264,12 @@
         //build content sections scenes
         var scene = new ScrollMagic.Scene({offset: staticLength-1, triggerHook: "onEnter", triggerElement: `#section${i}`, duration: scrollDuration})
                 .setPin(`#pin${i}`)
-                .setClassToggle("#bouncy","bounce") //bounces anything with bouncy id
-                .on('start', function () {
-                  // console.log(`Height: ${window.innerHeight}, Width: ${window.innerWidth}`)
-                })
-                .on('end', function () {
-                  // console.log("passed trigger");
-                })
                 // .addIndicators({name: ` (duration: ${scrollDuration})`}) //debugging indicator
                 // .addIndicators({name: "scroll"}) //simple indicator
-                .addTo(controller);
+                .addTo(scrollController);
+        var bounce = new ScrollMagic.Scene({offset: staticLength-1, triggerHook: "onEnter", triggerElement: `#section${i}`, duration: scrollDuration})
+                .setClassToggle("#bouncy","bounce") //bounces anything with bouncy id
+                .addTo(bounceController);
       
         //prevents multiple premature triggers during manual resizing
         $(window).resize(function() {

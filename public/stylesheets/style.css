@@ -56,13 +56,14 @@ body {
 }
 
 .navbar {
-  position:absolute;
+  /* position:absolute; */
   /* text-align: center; */
   /* left:30%;
   bottom:0; */
   font-size: 18px;
 
-  margin: 0% 29% auto;
+  /* margin: 0% 29% auto; */
+  display: inline-block;
   bottom: 6%;
 }
 
