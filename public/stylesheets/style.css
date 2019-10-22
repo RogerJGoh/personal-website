@@ -13,28 +13,24 @@ body {
     overflow-y:auto;
 }
 
-.block-right ul {
-  list-style: none; /* Remove default bullets */
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.block-right ul li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: rgb(170, 207, 176);
-  font-weight: bold; /* If you want it to be bold */
-  font-size: 130%;
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
-}
-
-
-
 .wrapper{
   width: 100vw;
   height: 100vh;
   background-color: white;
+}
+
+.mainTitle{
+  font-family: 'gentium-book-basic' !important;
+  font-size: 300%;
+  text-align: center;
+  /* margin: 38vh 0; */
+  margin: 34vh 0;
+  font-weight: 100;
+}
+
+.background{
+  background-image: url("/images/rogersdesk.png");
+  background-size: cover;
 }
 
 .block-left{
@@ -52,61 +48,11 @@ body {
   font-family: 'gentium-book-basic', sans-serif !important;
 }
 
-.block-right{
-  background-color: white;
-  padding: 5%;
-  font-family: sans-serif;
-  color: rgb(80, 85, 92);
-  font-weight: 400;
-  font-size: 15px;
-  font-style: normal; 
-  min-height: 100vh;
-}
-
-.spaced{
-  margin-bottom: 30px;
-}
-
-.sm-spaced{
-  margin-bottom: 15px;
-}
-
-.mainTitle{
-  font-family: 'gentium-book-basic' !important;
-  font-size: 300%;
-  text-align: center;
-  /* margin: 38vh 0; */
-  margin: 34vh 0;
-  font-weight: 100;
-}
-
 .aboutMeHeader{
   font-size: 160%;
   font-weight: bold;
   color: rgb(170, 207, 176);
   margin-bottom: 20px;
-}
-
-.header{
-  font-size: 110%;
-  font-weight: bold;
-  margin-bottom: 5px;
-
-}
-
-.subHeader{
-  color: rgb(170, 207, 176);
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.fadedText{
-  color: rgb(138, 138, 138);
-}
-
-.fadedText span{
-  font-size: 85%;
-  font-style: italic;
 }
 
 .navbar {
@@ -138,9 +84,66 @@ body {
   color: black;
 }
 
-.background{
-  background-image: url("/images/rogersdesk.png");
-  background-size: cover;
+.block-right{
+  background-color: white;
+  padding: 5%;
+  font-family: sans-serif;
+  color: rgb(80, 85, 92);
+  font-weight: 400;
+  font-size: 15px;
+  font-style: normal; 
+  min-height: 100vh;
+}
+
+.block-right ul {
+  list-style: none; /* Remove default bullets */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.block-right ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: rgb(170, 207, 176);
+  font-weight: bold; /* If you want it to be bold */
+  font-size: 130%;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+.header{
+  font-size: 110%;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.subHeader{
+  color: rgb(170, 207, 176);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+.content-row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.spaced{
+  margin-bottom: 30px;
+}
+
+.sm-spaced{
+  margin-bottom: 15px;
+}
+
+.fadedText{
+  color: rgb(138, 138, 138);
+}
+
+.fadedText span{
+  font-size: 85%;
+  font-style: italic;
 }
 
 @font-face {font-family: 'gentium-book-basic'; 
