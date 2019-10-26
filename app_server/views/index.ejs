@@ -88,7 +88,8 @@
             </div>
             <ul>
               <li>BSc Double Major in Computer Science and Data Science; GPA 4.8/7.0</li>
-              <li>ISAT Score of 170 - top 30% of test-taking population (highly competitive medical sciences cognitive/admission test developed by ACER).</li>
+              <li>Granted Direct Pathway entry to Dental Medicine for International Students (discontinued) – Only 3 available places were awarded to highest-ranking applicants in academic performance, ISAT and interview score.</li>
+              <li>ISAT Score of 170 - top 30% of national test-taking population (highly competitive medical sciences cognitive/admission test - measuring Critical, Quantitive and Overall Reasoning).</li>
             </ul>
           </div>
 
@@ -102,7 +103,7 @@
             </div>
             <ul>
                 <li>Foundation Course; Course Average: 80%, English Average: A</li>
-                <li>ASEAN $5000 Scholarship</li>
+                <li>ASEAN $5000 Scholarship.</li>
             </ul>
           </div>
 
@@ -110,7 +111,7 @@
 
           <div class="content-row spaced row">
             <ul>
-                <li><b>Web/Mobile Development: </b>Swift(iOS), JavaScript, HTML/CSS/Bootstrap, Express, NodeJS, Angular, React, ScrollMagic.</li>
+                <li><b>Web/Mobile Development: </b>Swift(iOS), JavaScript/NodeJS, HTML/CSS/Bootstrap, Express, Angular, React, Google Cloud APIs.</li>
                 <li><b>General Purpose / Other: </b>Git, Python, C, C++, Java, MatLab, VBA.</li>
                 <li><b>Databases: </b>MySQL, MongoDB, Firebase, BigQuery.</li>
                 <li><b>Environments: </b>Unix/Linux, Mac, Windows.</li>
@@ -129,11 +130,27 @@
             <ul>
               <li>Independent contract work to implement a web server used to retrieve, transform and store data from Qualtrics (survey platform) to Google Cloud BigQuery (storage) and Google Pub/Sub (message-oriented middleware).</li>
               <li>Additionally implemented dynamically field-updating schema, error mailing system, service options via query strings, Google App Engine server deployment and documentation.</li>
+              <li>Regularly communicated with client discussing project expectations, explanation of technology requirements, solutions and end-user instructions whilst continuously updating the documentation independently.</li>
+              <li>Client doubled my initial proposed payment and approached me for extended scope of work.</li>
             </ul>
           </div>
 
           <div class="content-row row aboutMeHeader">Activities</div>
 
+          <div class="sm-spaced content-row row">
+            <div class="header">PwC Tech Academy</div>
+            <div class="fadedText">
+              <i>PwC, Perth, WA</i>
+              <p><span>October 2019</span></p>
+            </div>
+            <ul>
+              <li>One day interactive workshop and networking event educating on:</li>
+              <li>PwC’s contributions and values to technology.</li>
+              <li>Technologies/techniques used in Data Analytics and Cybersecurity.</li>
+              <li>Project Management/Communication skills via Agile Methodology.</li>
+            </ul>
+          </div>
+          
           <div class="sm-spaced content-row row">
             <div class="header">UniMentor 2019</div>
             <div class="fadedText">
@@ -152,7 +169,7 @@
               <p><span>Oct 2019 - Current</span></p>
             </div>
             <ul>
-              <li>Independently developed a personal website to demonstrate web development skills and to present a personalised profile.</li>
+              <li>Independently developed a personal website withou templates to demonstrate web development skills and to present a personalised profile.</li>
               <li>Combined own vector illustration (.svg), JavaScript/HTML/CSS and ScrollMagic library for scroll based animations (signature drawing, pinned headers/sections, navbar bouncing).</li>
               <li>Used Bootstrap containers/rows/columns and jQuery for cross-platform compatible formatting/styling</li>
             </ul>
@@ -177,6 +194,17 @@
             </div>
             <ul>
               <li>Participated in crafting activities for university events/clubs.</li>
+            </ul>
+          </div>
+
+          <div class="sm-spaced content-row row">
+            <div class="header">Student Council</div>
+            <div class="fadedText">
+              <i>Taylors College, Perth, WA</i>
+              <p><span>Jan 2015 - Jul 2015</span></p>
+            </div>
+            <ul>
+              <li>Contributed ideas to event planning and designed graphics for promotional media and tickets for 2 terms.</li>
             </ul>
           </div>
 
@@ -208,7 +236,7 @@
                 <p>Software Developer + Designer</p>
                 <p>+61 481 222 890</p>
                 <p><a href="mailto:rogerjgoh@gmail.com">rogerjgoh@gmail.com</a></p>
-                <p><a href="https://linkedin.com/in/roger-goh-654b91194"><b>LinkedIn</b></a></p>
+                <p><a href="https://linkedin.com/in/roger-goh"><b>LinkedIn</b></a></p>
             </div>
 
             <div class="content-row row aboutMeHeader" style="color: rgb(63, 63, 63);">Reference</div>
@@ -232,8 +260,8 @@
           for(i=0;i<2;i++){ //loop through each scene/block
             var scrollController = new ScrollMagic.Controller();
             var bounceController = new ScrollMagic.Controller();
-            var staticLength = $(`#staticLength${i}`).outerHeight()  //bottom line of the header block/left column
-            var scrollLength = $(`#scrollLength${i}`).outerHeight()  //bottom line of the information block/right column
+            var staticLength = $("#staticLength"+i).outerHeight()  //bottom line of the header block/left column
+            var scrollLength = $("#scrollLength"+i).outerHeight()  //bottom line of the information block/right column
             var scrollDuration = scrollLength-staticLength      //distance between the two, scroll space
             
             //if screen is small, the header/column fills the width of the page therefore does not require scrolling
@@ -255,14 +283,14 @@
             }
             
             //build content sections scenes
-            var scene = new ScrollMagic.Scene({offset: staticLength-1, triggerHook: "onEnter", triggerElement: `#section${i}`, duration: scrollDuration})
-                    .setPin(`#pin${i}`)
+            var scene = new ScrollMagic.Scene({offset: staticLength-1, triggerHook: "onEnter", triggerElement: "#section"+i, duration: scrollDuration})
+                    .setPin("#pin"+i)
                     // .addIndicators({name: ` (duration: ${scrollDuration})`}) //debugging indicator
                     // .addIndicators({name: "scroll"}) //simple indicator
                     .addTo(scrollController);
             for(j=0;j<6;j++){
-              new ScrollMagic.Scene({offset: staticLength-1, triggerHook: "onEnter", triggerElement: `#section${i}`, duration: scrollDuration})
-              .setClassToggle(`#bouncy${j}`,"bounce") //bounces anything with bouncy id
+              new ScrollMagic.Scene({offset: staticLength-1, triggerHook: "onEnter", triggerElement: "#section"+i, duration: scrollDuration})
+              .setClassToggle("#bouncy"+j,"bounce") //bounces anything with bouncy id
               .addTo(bounceController);
             }
           
@@ -301,7 +329,7 @@
       var tween = new TimelineMax()
       
       for(var i=1; i<=7; i++){
-        var $stroke = $(`polyline#svg_${i}`);
+        var $stroke = $("polyline#svg_"+i);
         pathPrepare($stroke); //prepare SVG
         switch(i) {
           case 5:   //g,e,r
