@@ -8,7 +8,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
     height: 100vh;
-    transform-style: preserve-3d;
+    /* transform-style: preserve-3d; */
     overflow-x:hidden;
     overflow-y:auto;
 }
