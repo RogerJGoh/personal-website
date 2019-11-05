@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-var surveyData = require('../controllers/surveyData.js');
+var colourData = require('../controllers/colourData.js');
 
 router.get('/', function(req,res,next){
-  return surveyData.getData(req,res);
+  return colourData.getData(req,res);
+});
+
+router.post('/', function(req,res,next){
+  return colourData.sendData(req,res);
 });
 
 module.exports = router;

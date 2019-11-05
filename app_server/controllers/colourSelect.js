@@ -1,3 +1,5 @@
+//auto-complete suggestion using Angular 1.0.0
+
 function DefaultCtrl($scope) {
     $scope.names = ["red","orange","yellow","green","blue","indigo", "violet"];
 }

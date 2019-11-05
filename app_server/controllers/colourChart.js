@@ -1,25 +1,14 @@
-//dynamic controller (requires data externally) vs static controllers in /public/javascripts/
+//doughnut chart configuration - init and response to new data.
+
 var config = {
     type: 'doughnut',
     data: {
         datasets: [{
-        data: [
-            1,
-            1,
-            1,
-        ],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-        ],
+        data: [],
+        backgroundColor: [],
         label: 'Dataset 1'
         }],
-        labels: [
-            'red',
-            'orange',
-            'yellow',
-        ]
+        labels: []
     },
     options: {
         responsive: true,
@@ -40,52 +29,86 @@ var config = {
 };
 
 window.onload = function() {
+    var colourDataRaw = document.getElementById('colourData').innerHTML;
+    var colourData = JSON.parse(colourDataRaw)
+    console.log(colourData)
+    for(i in colourData){
+        config.data.datasets[0].data.push(colourData[i].count);
+        config.data.datasets[0].backgroundColor.push(getRGBA(colourData[i].colour));
+        config.data.labels.push(colourData[i].colour);
+    }
+
     var ctx = document.getElementById('myChart').getContext('2d');
     window.myDoughnut = new Chart(ctx, config);
 };
 
-var rainbowColours = ["red","orange","yellow", "green", "blue", "indigo", "violet"]
-
 document.getElementById('addData').addEventListener('click', function() {
-    if (config.data.datasets.length > 0) {
-        var colourInput = document.getElementById('colourInput').value.toLowerCase();
-        if(!(rainbowColours.includes(colourInput))){return}
-        var rgbValue = 'rgba(255, 99, 132, 0.2)'
-        switch(colourInput){
-            case "red":
-                break;
-            case "orange":
-                rgbValue = 'rgba(255, 159, 64, 0.2)' 
-                break;
-            case "yellow":
-                rgbValue = 'rgba(255, 206, 86, 0.2)'
-                break;
-            case "green":
-                rgbValue = 'rgba(75, 192, 192, 0.2)'
-                break;
-            case "blue":
-                rgbValue = 'rgba(54, 162, 235, 0.2)'
-                break;
-            case "violet":
-                rgbValue = 'rgba(238, 130, 238, 0.2)'
-                break;
-            case "indigo":
-                rgbValue = 'rgba(75, 0, 130, 0.1)'
-                break;
-            default:
+    //add valid colour to chart
+    var colourInput = document.getElementById('colourInput').value.toLowerCase();
+    var rgbValue = getRGBA(colourInput)
+    if(rgbValue=="none"){return}
+    var hasColour = false;
+
+    //increment if already part of chart
+    for(i=0;i<config.data.datasets[0].data.length;i++){
+        if(config.data.labels[i]==colourInput){
+            config.data.datasets[0].data[i]+=1; //increment if already in chart
+            hasColour = true;
         }
-        var hasColour = false;
-        for(i=0;i<config.data.datasets[0].data.length;i++){
-            if(config.data.labels[i]==colourInput){
-                config.data.datasets[0].data[i]+=1; //increment if already in chart
-                hasColour = true;
-            }
-        }
-        if(hasColour==false){
-            config.data.datasets[0].data.push(1);
-            config.data.datasets[0].backgroundColor.push(rgbValue);
-            config.data.labels.push(colourInput);
-        }
-        window.myDoughnut.update();
     }
+    //else add new slice to doughnut chart
+    if(hasColour==false){
+        config.data.datasets[0].data.push(1);
+        config.data.datasets[0].backgroundColor.push(rgbValue);
+        config.data.labels.push(colourInput);
+    }
+    window.myDoughnut.update();
+
+    //send AJAX post request without re-rendering the page
+    // event.preventDefault
+    // $.post('/', colourInput, function(resp){
+    //     console.log(resp)
+    // })
 });
+
+$("#colourForm").submit(function(e){
+    e.preventDefault();
+    $ajax({
+        url: "/",
+        type: "POST",
+        data: {
+            "colour": "indigo"
+        },
+        success: function(data){
+            console.log(data);
+        }
+    });
+});
+
+function getRGBA(colourName){
+    switch(colourName){
+        case "red":
+            return 'rgba(255, 99, 132, 0.2)'
+            break;
+        case "orange":
+            return 'rgba(255, 159, 64, 0.2)' 
+            break;
+        case "yellow":
+            return 'rgba(255, 206, 86, 0.2)'
+            break;
+        case "green":
+            return 'rgba(75, 192, 192, 0.2)'
+            break;
+        case "blue":
+            return 'rgba(54, 162, 235, 0.2)'
+            break;
+        case "violet":
+            return 'rgba(238, 130, 238, 0.2)'
+            break;
+        case "indigo":
+            return 'rgba(75, 0, 130, 0.1)'
+            break;
+        default:
+            return 'none'
+    }
+}

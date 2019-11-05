@@ -188,12 +188,18 @@
                   <script src="/controllers/colourSelect.js"></script>
                   <div ng-app='MyModule'>
                       <div class="spaced" ng-controller='DefaultCtrl'>
-                        <div><b>Favourite colour of the Rainbow?</b></div>
-                        <input id="colourInput" class="form-control" auto-complete ui-items="names" ng-model="selected">
-                        <span style="font-size: 75%;">2 Way Data Bind: {{selected}}</span>
+                        <div style="margin-bottom: 10px"><b>Favourite colour of the Rainbow?</b></div>
+                        <div>
+                          <form id="colourForm" method="post">
+                            <input type="text" id="colourInput" name="colour" class="form-control" auto-complete ui-items="names" ng-model="selected">
+                            <span class="input-group-btn">
+                              <button type="submit" id="addData" class="btn btn-primary" value="Add {{selected}}">Add {{selected}}</button>
+                            </span>
+                          </form>
+                        </div>
                       </div>
                   </div>
-                <button id="addData" class="btn btn-primary">Add Data</button></div>
+                </div>
             </div>
             <ul>
               <li>Will soon add a controller to populate the chart data with an SQL query later today!</li>
@@ -287,6 +293,9 @@
     
     <!-- Check if signature animation requires more space (if divs are overlapping) -->
     <script type="text/javascript" src="/javascripts/collision-detection.js"></script>
+
+    <!-- Chart Data -->
+    <div id="colourData" hidden><%=colourData%></div>
 
   </body>
 </html>
