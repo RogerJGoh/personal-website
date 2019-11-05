@@ -3,12 +3,12 @@
 const {BigQuery} = require('@google-cloud/bigquery');
 
 //Create BigQuery Client
-var file = "./app_server/models/gcloud-auth.json";
+// var file = "./app_server/models/gcloud-auth.json";
 var bigquery = new BigQuery({
     projectId: "rogergoh",
     datasetId: "Visualization_Demo",
-    tableId: "Favourite_Colours",
-    keyFilename: file
+    tableId: "Favourite_Colours"
+    // keyFilename: file
 })
 
 module.exports.getData = function(req,res){

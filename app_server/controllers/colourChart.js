@@ -1,4 +1,5 @@
 //doughnut chart configuration - init and response to new data.
+//also includes AJAX to route submit button to POST request.
 
 var config = {
     type: 'doughnut',
