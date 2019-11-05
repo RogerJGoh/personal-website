@@ -12,6 +12,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    
+    <script src="https://code.angularjs.org/1.0.0/angular-1.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css'/>
+    
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -162,17 +170,37 @@
             </ul>
           </div>
 
-          <div class="sm-spaced content-row row">
+          <div id="website" class="sm-spaced content-row row">
             <div class="header">Personal Website (NodeJS)</div>
             <div class="fadedText">
               <i>Personal Project, Perth, WA</i>
               <p><span>Oct 2019 - Current</span></p>
             </div>
-            <ul>
-              <li>Independently developed a personal website withou templates to demonstrate web development skills and to present a personalised profile.</li>
+            <ul class="spaced">
+              <li>Independently developed a personal website without templates to demonstrate web development skills and to present a personalised profile.</li>
               <li>Combined own vector illustration (.svg), JavaScript/HTML/CSS and ScrollMagic library for scroll based animations (signature drawing, pinned headers/sections, navbar bouncing).</li>
-              <li>Used Bootstrap containers/rows/columns and jQuery for cross-platform compatible formatting/styling</li>
+              <li>Used Bootstrap containers/rows/columns and jQuery for cross-platform compatible formatting/styling.</li>
+              <li>Lets also demonstrate some basic visualization (chart.js) and AngularJS (auto-complete suggestions, ng-model)!</li>
             </ul>
+            <div class="spaced row">
+              <div class="col-sm-4" style="max-height: 40vh; max-width: 40vw;"><canvas id="myChart" width="100" height="100"></canvas></div>
+              <div class="col-sm-6">
+                  <script src="/controllers/colourSelect.js"></script>
+                  <div ng-app='MyModule'>
+                      <div class="spaced" ng-controller='DefaultCtrl'>
+                        <div><b>Favourite colour of the Rainbow?</b></div>
+                        <input id="colourInput" class="form-control" auto-complete ui-items="names" ng-model="selected">
+                        <span style="font-size: 75%;">2 Way Data Bind: {{selected}}</span>
+                      </div>
+                  </div>
+                <button id="addData" class="btn btn-primary">Add Data</button></div>
+            </div>
+            <ul>
+              <li>Will soon add a controller to populate the chart data with an SQL query later today!</li>
+            </ul>
+            
+            <script type="text/javascript" src="/controllers/colourChart.js"></script>
+        
           </div>
 
           <div class="sm-spaced content-row row">

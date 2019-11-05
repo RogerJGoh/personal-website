@@ -186,3 +186,8 @@ body {
   10%{top:0em;}
   100%{top:0em;}
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus{
+  background-color: rgb(170, 207, 176) !important;
+  border-color: rgb(170, 207, 176) !important;
+}

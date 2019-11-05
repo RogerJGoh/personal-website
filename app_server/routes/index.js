@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+var surveyData = require('../controllers/surveyData.js');
+
+router.get('/', function(req,res,next){
+  return surveyData.getData(req,res);
 });
 
 module.exports = router;
