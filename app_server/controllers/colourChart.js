@@ -46,7 +46,10 @@ document.getElementById('addData').addEventListener('click', function() {
     //add valid colour to chart
     var colourInput = document.getElementById('colourInput').value.toLowerCase();
     var rgbValue = getRGBA(colourInput)
-    if(rgbValue=="none"){return}
+    if(rgbValue=="none"){
+        alert("Not a colour of the Rainbow!")
+        return
+    }
     var hasColour = false;
 
     //increment if already part of chart
@@ -63,21 +66,15 @@ document.getElementById('addData').addEventListener('click', function() {
         config.data.labels.push(colourInput);
     }
     window.myDoughnut.update();
-
-    //send AJAX post request without re-rendering the page
-    // event.preventDefault
-    // $.post('/', colourInput, function(resp){
-    //     console.log(resp)
-    // })
 });
 
 $("#colourForm").submit(function(e){
     e.preventDefault();
-    $ajax({
+    $.ajax({
         url: "/",
         type: "POST",
         data: {
-            "colour": "indigo"
+            "colour": $("#colourInput").val()
         },
         success: function(data){
             console.log(data);
